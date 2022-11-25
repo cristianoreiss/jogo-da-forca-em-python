@@ -29,3 +29,9 @@ while chances != 0:
     else:
         print((''.join(palavra_escondida)).upper())
 
+if palavra_maiuscula == palavra_secreta.upper():
+    print(f'\nA palavra secreta é {palavra_maiuscula}')
+    print('\nVocê ganhou!!!')
+else:
+    print(f'\nA palavra secreta é {palavra_maiuscula}')
+    print('Você perdeu :/')
