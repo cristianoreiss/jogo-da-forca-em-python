@@ -1,5 +1,7 @@
+import os
 
 palavra_secreta = input('Peça para um amigo escrever uma palavra e não tente olhar: ')
+os.system('cls')
 
 palavra_escondida = list(palavra_secreta)
 index = []
@@ -9,7 +11,7 @@ for i in range(len(palavra_secreta)):
     palavra_escondida[i] = '_'
 
 while chances != 0:
-    letra = input('Digite uma letra: ')
+    letra = input('\nDigite uma letra: ')
 
     for i in range(len(palavra_secreta)):
         if palavra_secreta[i] == letra:
@@ -30,8 +32,8 @@ while chances != 0:
         print((''.join(palavra_escondida)).upper())
 
 if palavra_maiuscula == palavra_secreta.upper():
-    print(f'\nA palavra secreta é {palavra_maiuscula}')
+    print(f'\nA palavra secreta é {palavra_secreta.upper()}')
     print('\nVocê ganhou!!!')
 else:
-    print(f'\nA palavra secreta é {palavra_maiuscula}')
+    print(f'\nA palavra secreta é {palavra_secreta.upper()}')
     print('Você perdeu :/')
