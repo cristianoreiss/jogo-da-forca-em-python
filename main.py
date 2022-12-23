@@ -12,27 +12,25 @@ for i in range(len(palavra_secreta)):  # laço para esconder a palavra secreta
     palavra_escondida[i] = '_'
 
 while chances != 0:
-    letra = input('\nDigite uma letra: ')
-    if letras_chutadas.count(letra) != 0:  # condição que irá diminuir o número de chances se o jogador chutar uma palavra que já tenha chutado
+    chute = input('\nDigite uma letra: ')
+    if letras_chutadas.count(chute) != 0:  # condição que irá diminuir o número de chances se o jogador chutar uma palavra que já tenha chutado
         chances -= 1
 
-    letras_chutadas.append(letra)
+    letras_chutadas.append(chute)
 
-    if len(letra) > 1:
+    if len(chute) > 1:
         print("Por favor, digite apenas uma letra por vez")
         continue
 
-    for i in range(len(palavra_secreta)):  # laço que vai armazenar na variável 'index' os indices das letras da palavra secreta que são iguais ao chute do jogador
-        if palavra_secreta[i] == letra:
-            (index.append(i))
+    index = [i for i, letra in enumerate(palavra_secreta) if letra == chute]
 
     for i in index:  # laço que irá percorrer a lista de indices e irá revelar as letras que o jogador acertou
-        palavra_escondida[i] = letra
+        palavra_escondida[i] = chute
 
     index.clear()  # comando para apagar o conteúdo da lista parar poder armazenar indices da palavra secreta que correspondam ao novo possível chute certo do jogador
     palavra_maiuscula = (''.join(palavra_escondida)).upper()
 
-    if palavra_secreta.count(letra) == 0:  # condicional que irá diminuir as chances do jogador se ele errar o chute ou se ele chutar um letra
+    if palavra_secreta.count(chute) == 0:  # condicional que irá diminuir as chances do jogador se ele errar o chute ou se ele chutar um letra
         chances = chances - 1
 
     if palavra_maiuscula == palavra_secreta.upper():
